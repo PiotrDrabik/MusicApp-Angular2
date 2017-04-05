@@ -1,0 +1,54 @@
+.up-space {
+    margin-top:2%;
+}
+
+.bg-color {
+    background-color: black;
+    color: white;
+} 
+
+.border-img {
+    border: 1px red solid;
+    margin: 2px;
+    max-width: 70%;
+    height: auto;
+}
+
+.anim:hover {
+    border: 4px red double;
+}
+
+.artistList {
+    text-align: left; 
+    width: 70%; 
+    height:100%;
+    padding-left:6px;
+}
+
+.spaceRight {
+    margin-right:20px;
+}
+
+.spaceBottom {
+    margin-bottom:2px;
+}
+
+#header {
+    width:100%;
+    /*border: 2px red solid;*/
+    /*background-color: lightgrey;*/
+    font-size: 1.5rem;
+    color: black;
+}
+
+.largerFont {
+    font-size: 2rem;
+}
+
+#header > input {
+    background-color:white;
+}
+
+.cursorPnt {
+    cursor: pointer;
+}

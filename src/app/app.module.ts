@@ -4,15 +4,37 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HttpRxjsComponent } from './http-rxjs/http-rxjs.component';
+import { CompArtistComponent } from './comp-artist/comp-artist.component';
+import { CompAlbumComponent } from './comp-album/comp-album.component';
+import { FirstLargeLetterPipe } from './first-large-letter.pipe';
+import { RouterModule, Routes } from '@angular/router';
+
+/*
+const routesConfig: Routes = [
+  {path:'', component: AppComponent},
+  //{path:'music', component: AppComponent} ,
+  {path:'**', redirectTo: '', pathMatch:'full'} //** - każde zapytanie
+]
+
+const routerModule = RouterModule.forRoot(routesConfig,{
+  enableTracing: true,
+  useHash: false
+})*/
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HttpRxjsComponent,
+    CompArtistComponent,
+    CompAlbumComponent,
+    FirstLargeLetterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    //routerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,32 @@
+
+  <div class="row" *ngFor="let items of searchCom.settin.receivedData; let i = index">
+    <div class="col text-center">
+        <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
+        <img *ngIf="!items.images.length>0" src="assets/img.jpg"  class="border-img anim">
+    </div>
+    <div class="col text-center">
+      <div class="artistList anim">
+       <p># {{searchCom.settin.position + i}}</p>
+       <p class="largerFont">Album name: {{items.name}}</p>
+        <ul>
+           <li class="largerFont" *ngFor="let artist of items.artists; let k = index">{{artist.type | firstLargeLetter}}: {{artist.name}} </li>
+       </ul>
+       <p>Link to Spotify: <a href='{{items.external_urls.spotify}}'>https://open.spotify.com</a></p>
+       <button type="button" class="btn btn-secondary" (click)="takeAlbums(items.id)">Pobierz listę utworów</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<p>
+  comp-album works!
+</p>
+<div class="row" *ngFor="let items of searchCom.settin.receivedData; let i = index">
+  <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
+  {{ items.name }}
+  {{ items.album_type }}
+  
+  
+</div>
