@@ -17,6 +17,24 @@ export class SearchService {
     limit: null
   };
 
+  takeAlbums = function(id) {
+    console.log(id);
+    this.searchHttp(`https://api.spotify.com/v1/artists/${id}/albums`)
+    .subscribe((response:Response)=>{
+      let data = response.json()
+      console.log(data);
+          this.settin.next = data.next;
+          this.settin.previous = data.previous;
+          this.settin.total = data.total;
+          this.settin.position = data.offset+1;
+          this.settin.limit = data.items.length;
+          this.settin.receivedData = data.items.map(v => {
+            return v;
+          });
+    });
+    //this.searchAlbums(id);
+  };
+
   searchHttp(url) {
     return this.http.get(url);
   }

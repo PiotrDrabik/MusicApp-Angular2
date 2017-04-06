@@ -1,6 +1,17 @@
-<!--
-<app-list-album></app-list-album>
--->
+<p>
+  list-album works!
+</p>
+<div class="row" *ngFor="let items of searchCom.settin.receivedData; let i = index">
+   {{items.album_type}} {{items.name}}
+   <hr />
+   <span *ngFor="let artists of items.artists">
+      {{artists.name}} {{artists.type}}
+   </span>
+   <span *ngFor="let markets of items.available_markets">
+      {{markets}}
+   </span>
+</div>
+
   <div class="row" *ngFor="let items of searchCom.settin.receivedData; let i = index">
     <div class="col text-center">
         <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
@@ -10,6 +21,9 @@
       <div class="artistList anim">
        <p># {{searchCom.settin.position + i}}</p>
        <p class="largerFont">Artist: {{items.name}}</p>
+       <span *ngFor="let artists of items.artists">
+          <p>{{artists.name}}</p> <span>{{artists.type}}; </span>
+        </span>
        <p>Genres: <span *ngFor="let genre of items.genres; let isLast = last">{{ genre | uppercase }}<span *ngIf="!isLast">; </span></span></p>
        <p *ngIf="items.popularity">Popularity: {{items.popularity || ''}}</p>
        <p *ngIf="items.followers">Followers:  {{items.followers.total}}</p>

@@ -2,4 +2,9 @@
   <app-http-rxjs></app-http-rxjs>
 <!--
   <router-outlet></router-outlet>
-  -->
+-->
+
+  <div class="container-fluid up-space bg-color" *ngIf="searchCom.settin.inputData!=''">
+    <app-comp-artist *ngIf="searchCom.settin.type=='artist'"></app-comp-artist>
+    <app-comp-album *ngIf="searchCom.settin.type=='album'"></app-comp-album>
+</div>

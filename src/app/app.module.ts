@@ -9,6 +9,8 @@ import { CompArtistComponent } from './comp-artist/comp-artist.component';
 import { CompAlbumComponent } from './comp-album/comp-album.component';
 import { FirstLargeLetterPipe } from './first-large-letter.pipe';
 import { RouterModule, Routes } from '@angular/router';
+import { ListAlbumComponent } from './list-album/list-album.component';
+import { ListSongsComponent } from './list-songs/list-songs.component';
 
 /*
 const routesConfig: Routes = [
@@ -28,7 +30,9 @@ const routerModule = RouterModule.forRoot(routesConfig,{
     HttpRxjsComponent,
     CompArtistComponent,
     CompAlbumComponent,
-    FirstLargeLetterPipe
+    FirstLargeLetterPipe,
+    ListAlbumComponent,
+    ListSongsComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@ import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-http-rxjs',
-  providers: [SearchService],
+  providers: [],
   templateUrl: './http-rxjs.component.html',
   styleUrls: ['../app.common.css']
 })
@@ -17,7 +17,7 @@ export class HttpRxjsComponent implements OnInit {
   checkIt = function() {
     console.log('this.searchCom.settin.inputData');
     console.log(this.searchCom.settin.inputData);
-    if (this.searchCom.inputData!='') {
+    if (this.searchCom.settin.inputData!='') {
       //this.search(`https://api.spotify.com/v1/search?q=${this.inpData}&type=album artist`);
       this.searchCom.searchSpotify(`https://api.spotify.com/v1/search?q=${this.searchCom.settin.inputData}&type=${this.searchCom.settin.type}`, null);
     } else {
@@ -32,7 +32,7 @@ export class HttpRxjsComponent implements OnInit {
     let url = (direction=="next") ? this.searchCom.settin.next :  this.searchCom.settin.previous;
     this.searchCom.searchSpotify(url);
   }
-
+/*
   takeAlbums = function(id) {
     console.log(id);
     this.searchCom.searchSpotify(id);
@@ -50,7 +50,7 @@ export class HttpRxjsComponent implements OnInit {
       })
       console.log(this.albums);
     })
-  };
+  };*/
 
   ngOnInit() {
 
