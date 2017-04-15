@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-list-songs',
   templateUrl: './list-songs.component.html',
-  styleUrls: ['./list-songs.component.css']
+  styleUrls: ['../app.common.css']
 })
 export class ListSongsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private searchCom: SearchService ){  }
 
   ngOnInit() {
   }

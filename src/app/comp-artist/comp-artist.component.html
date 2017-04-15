@@ -14,7 +14,8 @@
        <p *ngIf="items.popularity">Popularity: {{items.popularity || ''}}</p>
        <p *ngIf="items.followers">Followers:  {{items.followers.total}}</p>
        <p>Link to Spotify: <a href='{{items.external_urls.spotify}}'>https://open.spotify.com</a></p>
-       <button type="button" class="btn btn-secondary" (click)="searchCom.takeAlbums(items.id)">Pobierz albumy</button>
+       <button type="button" class="btn btn-secondary"> <!-- (click)="searchCom.takeAlbums(items.id)">-->
+         <a (click)="searchCom.takeAlbums(items.id)" routerLink="/album-list">Show artist's albums</a></button>
        <p *ngFor="let album of albums; let k = index">{{album.name || ''}}</p>
       </div>
     </div>

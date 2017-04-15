@@ -15,6 +15,8 @@ export class CompAlbumComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchCom.settin.type = 'album';
+    this.searchCom.checkIt();
   }
 
 }

@@ -14,6 +14,8 @@ export class CompArtistComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchCom.settin.type = 'artist';
+    this.searchCom.checkIt();
   }
 
 }

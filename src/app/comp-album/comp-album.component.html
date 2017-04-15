@@ -1,8 +1,11 @@
 
   <div class="row" *ngFor="let items of searchCom.settin.receivedData; let i = index">
     <div class="col text-center">
+      <span *ngIf="items.images">
         <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
         <img *ngIf="!items.images.length>0" src="assets/img.jpg"  class="border-img anim">
+        <!--{{items.images | json}}-->
+      </span>
     </div>
     <div class="col text-center">
       <div class="artistList anim">
@@ -12,7 +15,7 @@
            <li class="largerFont" *ngFor="let artist of items.artists; let k = index">{{artist.type | firstLargeLetter}}: {{artist.name}} </li>
        </ul>
        <p>Link to Spotify: <a href='{{items.external_urls.spotify}}'>https://open.spotify.com</a></p>
-       <button type="button" class="btn btn-secondary" (click)="searchCom.takeAlbums(items.id)" disabled>Pobierz listę utworów</button>
+       <button type="button" class="btn btn-secondary" ><a routerLink="/tracks-list" (click)="searchCom.takeTracks(items.id, i)">Show CD's details</a></button>
       </div>
     </div>
   </div>

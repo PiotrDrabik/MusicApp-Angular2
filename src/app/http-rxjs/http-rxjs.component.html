@@ -6,11 +6,35 @@
   
   <div id="header">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <input type="text" [(ngModel)]="searchCom.settin.inputData" (keypress)="keyId($event)" (keyup)="checkIt()" class="spaceRight">
-      <select (change)="searchCom.settin.type = (searchCom.settin.type == 'artist') ? 'album' : 'artist';  checkIt()">
-        <option [ngValue]="artist">artist</option>
-        <option [ngValue]="album">album</option>
+      <input type="text" [(ngModel)]="searchCom.settin.inputData" [disabled]="router.url == '/album-list'" (keypress)="keyId($event)" (keyup)="checkIt()" routerLink="{{searchCom.settin.type}}" class="spaceRight">
+      <!--
+      <select (change)="searchCom.settin.type = (searchCom.settin.type == 'artist') ? 'album' : 'artist';  checkIt(); routerLink='album'">
+        <option [ngValue]="artist"><a routerLink="artist">artist</a></option>
+        <option [ngValue]="album"><a routerLink="album">album</a></option>
       </select>
+      -->
+  <div class="btn-group" role="group">
+    <!--<span  *ngIf="router.url != '/album-list'">-->
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <strong>{{ searchCom.settin.type }}
+      </strong>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+    <!--
+    (click)="searchCom.settin.type = (router.url == '/album') ? 'album' : 'artist';  checkIt();">
+    -->
+      <a class="dropdown-item" routerLink="artist">Artist</a>
+      <a class="dropdown-item" routerLink="album">Album</a>
+    </div>
+    <!--
+    </span>
+    
+    <div> 
+        <button type="button" class="btn btn-info cursorPnt" (click)='navigate()'><span>BACK</span></button>
+    </div>
+    -->
+  </div>
+
       <span *ngIf="searchCom.settin.inputData!=''" >
         <div class="btn-group spaceBottom" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-secondary">Searched enquiry: {{searchCom.settin.inputData}}</button>

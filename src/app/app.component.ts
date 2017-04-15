@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchService } from './search.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,19 @@ import { SearchService } from './search.service';
   providers: [SearchService],
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-   constructor( private searchCom: SearchService ){
+   constructor(private router: Router) { }
 
+  
+  ngOnInit() {
+    //scroll page to the top after routing has changed
+    this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0)
+        });
   }
 
 }

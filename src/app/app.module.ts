@@ -12,17 +12,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListAlbumComponent } from './list-album/list-album.component';
 import { ListSongsComponent } from './list-songs/list-songs.component';
 
-/*
+
 const routesConfig: Routes = [
-  {path:'', component: AppComponent},
-  //{path:'music', component: AppComponent} ,
+  {path:'', component: CompArtistComponent},
+  {path:'album', component: CompAlbumComponent} ,
+  {path:'artist', component: CompArtistComponent},
+  {path:'album-list', component: ListAlbumComponent},
+  {path:'tracks-list', component: ListSongsComponent},
   {path:'**', redirectTo: '', pathMatch:'full'} //** - każde zapytanie
 ]
 
 const routerModule = RouterModule.forRoot(routesConfig,{
   enableTracing: true,
   useHash: false
-})*/
+})
 
 @NgModule({
   declarations: [
@@ -38,9 +41,10 @@ const routerModule = RouterModule.forRoot(routesConfig,{
     BrowserModule,
     FormsModule,
     HttpModule,
-    //routerModule
+    routerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
