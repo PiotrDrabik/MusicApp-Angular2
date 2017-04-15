@@ -17,19 +17,9 @@ export class HttpRxjsComponent implements OnInit {
     //to check current route
     this.router = _router;
   }
-  checkIt = function() {
-    console.log('this.searchCom.settin.inputData');
-    console.log(this.searchCom.settin.inputData);
-    if (this.searchCom.settin.inputData!='') {
-      //this.search(`https://api.spotify.com/v1/search?q=${this.inpData}&type=album artist`);
-      this.searchCom.searchSpotify(`https://api.spotify.com/v1/search?q=${this.searchCom.settin.inputData}&type=${this.searchCom.settin.type}`, null);
-    } else {
-      this.searchCom.receivedData = []
-    }
-  }
+
   keyId = function(event) {
-    console.log('Key charCode: ' + event.charCode);
-    //console.log(event);
+    //console.log('Key charCode: ' + event.charCode);
   }
   navigate = function() {
     this.searchCom.settin.type='album';
@@ -46,30 +36,8 @@ export class HttpRxjsComponent implements OnInit {
     
   }
   changeRoute = function() {
-    /*this.parentRouter = Router;
-    this.parentRouter.navigateByUrl('/album');
-    this.router.parent.navigate(['/album']); */
     this._router.navigate(['/album']);
   }
-/*
-  takeAlbums = function(id) {
-    console.log(id);
-    this.searchCom.searchSpotify(id);
-    //this.searchAlbums(id);
-  };
-
-  searchAlbums = function(id) {
-    let url = `https://api.spotify.com/v1/artists/${id}/albums`;
-    this.http.get(url)
-    .subscribe((response:Response)=>{
-      let data = response.json()
-      console.log(data);
-      this.albums = data.items.map(v => {
-          return v;
-      })
-      console.log(this.albums);
-    })
-  };*/
 
   ngOnInit() {
 

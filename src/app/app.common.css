@@ -14,6 +14,10 @@
     height: auto;
 }
 
+.bgDark {
+    background-color: #1f1f1f;
+}
+
 .anim:hover {
     border: 4px red double;
 }
@@ -31,6 +35,20 @@
 
 .spaceBottom {
     margin-bottom:2px;
+}
+
+.marginAuto {
+    margin: auto;
+}
+
+.width80 {
+    width: 80%;
+}
+
+.songItem {
+    text-align:left; 
+    margin-bottom:2%; 
+    padding: 2%;
 }
 
 #header {

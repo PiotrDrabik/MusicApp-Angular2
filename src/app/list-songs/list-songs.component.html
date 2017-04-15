@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col text-center">
+<div class="row marginAuto">
+  <div class="col-md-6 col-sm-12 text-center">
       <div class="col text-center">
         <img *ngIf="searchCom.settin.artist.img" [src]="searchCom.settin.artist.img" class="border-img anim">
         <img *ngIf="!searchCom.settin.artist.img" src="assets/img.jpg"  class="border-img anim">
@@ -10,7 +10,7 @@
       </span>
       Album:
         <h1>{{searchCom.settin.artist.name}}</h1>
-        <div id="accordion" role="tablist" aria-multiselectable="true" style="width:80%; margin: auto;">
+        <div id="accordion" role="tablist" aria-multiselectable="true" class="width80 marginAuto">
         <div class="card" style="background-color:black;">
           <div class="card-header" role="tab" id="headingOne">
             <h5 class="mb-0">
@@ -27,15 +27,11 @@
         </div>
         </div>
   </div>
-  <div class="col text-center" style="width:70%; margin: auto;">
-    <span *ngFor="let items of searchCom.settin.receivedData; let i = index">
-      <div class="anim" style="text-align:left; margin-bottom:2%; padding: 2%;">
+  <div class="col-md-6 col-sm-12 text-center width80 marginAuto">
+    <span *ngFor="let items of searchCom.settin.receivedData; let i = index; let odd = odd">
+      <div class="anim songItem" [ngClass]="{bgDark: odd}">
               <p><span>Track {{items.track_number}}</span>: <strong>{{items.name}}</strong></p>
               <p><span>Disc number: {{items.disc_number}}</span></p>
-
-<!--
-              <p>Published for markets: <span *ngFor="let markets of items.available_markets">{{markets}}; </span></p>
-    -->          
               <audio controls style="width:100%;">
                 <source src="{{items.preview_url}}">
                 Your browser does not support the audio element.

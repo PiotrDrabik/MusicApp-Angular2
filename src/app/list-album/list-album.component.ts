@@ -13,6 +13,7 @@ export class ListAlbumComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchCom.takeAlbums(this.searchCom.settin.artist.albums);
   }
 
 }

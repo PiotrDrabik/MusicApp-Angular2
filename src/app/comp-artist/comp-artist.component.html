@@ -1,20 +1,20 @@
-<!--
-<app-list-album></app-list-album>
--->
-  <div class="row" *ngFor="let items of searchCom.settin.receivedData; let i = index">
-    <div class="col text-center">
+
+  <div class="row marginAuto" *ngFor="let items of searchCom.settin.receivedData; let i = index">
+    <div class="col-md-6 col-sm-12 text-center">
+      <span *ngIf="items.images">
         <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
         <img *ngIf="!items.images.length>0" src="assets/img.jpg"  class="border-img anim">
+      </span>
     </div>
-    <div class="col text-center">
-      <div class="artistList anim">
+    <div class="col-md-6 col-sm-12 text-center">
+      <div class="artistList anim  marginAuto">
        <p># {{searchCom.settin.position + i}}</p>
        <p class="largerFont">Artist: {{items.name}}</p>
        <p>Genres: <span *ngFor="let genre of items.genres; let isLast = last">{{ genre | uppercase }}<span *ngIf="!isLast">; </span></span></p>
        <p *ngIf="items.popularity">Popularity: {{items.popularity || ''}}</p>
        <p *ngIf="items.followers">Followers:  {{items.followers.total}}</p>
        <p>Link to Spotify: <a href='{{items.external_urls.spotify}}'>https://open.spotify.com</a></p>
-       <button type="button" class="btn btn-secondary"> <!-- (click)="searchCom.takeAlbums(items.id)">-->
+       <button type="button" class="btn btn-secondary"> 
          <a (click)="searchCom.takeAlbums(items.id)" routerLink="/album-list">Show artist's albums</a></button>
        <p *ngFor="let album of albums; let k = index">{{album.name || ''}}</p>
       </div>

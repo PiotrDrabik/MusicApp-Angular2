@@ -23,7 +23,7 @@ const routesConfig: Routes = [
 ]
 
 const routerModule = RouterModule.forRoot(routesConfig,{
-  enableTracing: true,
+  enableTracing: false,
   useHash: false
 })
 
