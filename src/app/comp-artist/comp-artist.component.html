@@ -9,13 +9,12 @@
     <div class="col-md-6 col-sm-12 text-center">
       <div class="artistList anim  marginAuto">
        <p># {{searchCom.settin.position + i}}</p>
-       <p class="largerFont">Artist: {{items.name}}</p>
-       <p>Genres: <span *ngFor="let genre of items.genres; let isLast = last">{{ genre | uppercase }}<span *ngIf="!isLast">; </span></span></p>
-       <p *ngIf="items.popularity">Popularity: {{items.popularity || ''}}</p>
-       <p *ngIf="items.followers">Followers:  {{items.followers.total}}</p>
-       <p>Link to Spotify: <a href='{{items.external_urls.spotify}}'>https://open.spotify.com</a></p>
-       <button type="button" class="btn btn-secondary"> 
-         <a (click)="searchCom.takeAlbums(items.id)" routerLink="/album-list">Show artist's albums</a></button>
+       <p class="largerFont bgColors">Artist: {{items.name}}</p>
+       <app-genres label="Genres" [item2]="items.genres"></app-genres>
+       <p><i class="fa fa-link" aria-hidden="true"></i> Link to Spotify: <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a></p>
+       <p *ngIf="items.popularity"><i class="fa fa-child" aria-hidden="true"></i> Popularity: {{items.popularity || ''}}</p>
+       <p *ngIf="items.followers"><i class="fa fa-blind" aria-hidden="true"></i> Followers:  {{items.followers.total}}</p>
+       <button type="button" class="btn btn-info cursorPnt width99" routerLink="/album-list" (click)="searchCom.takeAlbums(items.id)">Show artist's albums</button>
        <p *ngFor="let album of albums; let k = index">{{album.name || ''}}</p>
       </div>
     </div>

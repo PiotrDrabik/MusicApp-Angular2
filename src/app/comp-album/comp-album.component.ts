@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import {FirstLargeLetterPipe} from '../first-large-letter.pipe';
 
+
 @Component({
   selector: 'app-comp-album',
   providers: [],
@@ -10,7 +11,7 @@ import {FirstLargeLetterPipe} from '../first-large-letter.pipe';
 })
 export class CompAlbumComponent implements OnInit {
 
-  constructor( private searchCom: SearchService ){
+  constructor( private searchCom: SearchService){
 
   }
 

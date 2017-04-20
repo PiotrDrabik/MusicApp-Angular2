@@ -30,8 +30,10 @@
   <div class="col-md-6 col-sm-12 text-center width80 marginAuto">
     <span *ngFor="let items of searchCom.settin.receivedData; let i = index; let odd = odd">
       <div class="anim songItem" [ngClass]="{bgDark: odd}">
-              <p><span>Track {{items.track_number}}</span>: <strong>{{items.name}}</strong></p>
-              <p><span>Disc number: {{items.disc_number}}</span></p>
+              <p><span>Track {{items.track_number}}</span>: <strong class="spaceRight">{{items.name}}</strong> <span><i class="fa fa-star-half-o" aria-hidden="true"></i> {{items.artists[0].name}}</span></p>
+              <p><span class="spaceRight"><i class="fa fa-toggle-off" aria-hidden="true"></i> (Disc: {{items.disc_number}}); </span>
+                 Link to Spotify: <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a>
+              </p>
               <audio controls style="width:100%;">
                 <source src="{{items.preview_url}}">
                 Your browser does not support the audio element.

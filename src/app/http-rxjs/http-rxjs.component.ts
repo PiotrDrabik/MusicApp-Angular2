@@ -11,11 +11,11 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['../app.common.css']
 })
 export class HttpRxjsComponent implements OnInit {
-  router: any;
+  //router: any;
   pageRouter: string;
-  constructor( private searchCom: SearchService, public _router: Router ){
+  constructor( private searchCom: SearchService, public router: Router ){
     //to check current route
-    this.router = _router;
+    this.router = router;
   }
 
   keyId = function(event) {
@@ -35,8 +35,10 @@ export class HttpRxjsComponent implements OnInit {
       this.searchCom.searchSpotify(url);
     
   }
+
   changeRoute = function() {
-    this._router.navigate(['/album']);
+    //this.router.navigate(['/album']);
+    console.log('123');
   }
 
   ngOnInit() {

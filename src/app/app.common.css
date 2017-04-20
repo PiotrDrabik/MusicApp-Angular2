@@ -1,3 +1,4 @@
+
 .up-space {
     margin-top:2%;
 }
@@ -27,6 +28,24 @@
     width: 70%; 
     height:100%;
     padding-left:6px;
+    padding-bottom:2%;
+}
+@media (max-width: 1200px) {
+    .border-img {
+        max-width: 90%;
+    }
+    .artistList {
+        width: 90%; 
+    }
+}
+
+@media (max-width: 600px) {
+    .border-img {
+        max-width: 100%;
+    }
+    .artistList {
+        width: 100%; 
+    }
 }
 
 .spaceRight {
@@ -43,6 +62,10 @@
 
 .width80 {
     width: 80%;
+}
+
+.width99 {
+    width: 99%;
 }
 
 .songItem {
@@ -69,4 +92,14 @@
 
 .cursorPnt {
     cursor: pointer;
+}
+
+.bgColors {
+    
+    color: white;
+    border-radius: 15px;
+    background-color: rgb(40, 40, 40);
+    opacity: 0.9;
+    box-shadow: 0px 4px 4px 1.5px rgba(250, 249, 249, 0.1);
+    padding-left: 6px;
 }

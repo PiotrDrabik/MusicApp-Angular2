@@ -1,0 +1,9 @@
+<p>{{ label }}: <span *ngFor="let genre of item2; let isLast = last; let i = index">
+     <span *ngIf="i<4">{{ genre | uppercase }}
+               <span *ngIf="!isLast&&i!=3">; </span>
+               <span *ngIf="i==3&&clicked==false"><button type="button" class="btn btn-outline-info" (click)="clicked=true">...</button></span>
+         </span>
+         <span *ngIf="i>3&&clicked==true">{{ genre | uppercase }}</span>
+         <span *ngIf="!isLast&&i>3&&clicked==true">; </span>
+     </span>
+</p>

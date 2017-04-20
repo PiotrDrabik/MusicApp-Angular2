@@ -11,10 +11,12 @@ import { FirstLargeLetterPipe } from './first-large-letter.pipe';
 import { RouterModule, Routes } from '@angular/router';
 import { ListAlbumComponent } from './list-album/list-album.component';
 import { ListSongsComponent } from './list-songs/list-songs.component';
+import { WelcomepageComponent } from './welcomepage/welcomepage.component';
+import { GenresComponent } from './genres/genres.component';
 
 
 const routesConfig: Routes = [
-  {path:'', component: CompArtistComponent},
+  {path:'', component: WelcomepageComponent},
   {path:'album', component: CompAlbumComponent} ,
   {path:'artist', component: CompArtistComponent},
   {path:'album-list', component: ListAlbumComponent},
@@ -35,7 +37,9 @@ const routerModule = RouterModule.forRoot(routesConfig,{
     CompAlbumComponent,
     FirstLargeLetterPipe,
     ListAlbumComponent,
-    ListSongsComponent
+    ListSongsComponent,
+    WelcomepageComponent,
+    GenresComponent
   ],
   imports: [
     BrowserModule,

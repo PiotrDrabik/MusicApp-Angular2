@@ -6,7 +6,7 @@ import { Router, NavigationEnd } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   providers: [SearchService],
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.common.css']
 })
 export class AppComponent implements OnInit {
 

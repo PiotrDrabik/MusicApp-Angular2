@@ -2,7 +2,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <span class="navbar-brand">Spotify App: </span>
+  <span class="navbar-brand cursorPnt" routerLink="/">MusicApp: </span>
   
   <div id="header">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -19,24 +19,38 @@
       </strong>
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <a class="dropdown-item" routerLink="artist">Artist</a>
-      <a class="dropdown-item" routerLink="album">Album</a>
+      <a class="dropdown-item" routerLink="/artist">Artist</a>
+      <a class="dropdown-item" routerLink="/album">Album</a>
     </div>
   </div>
 
       <span *ngIf="searchCom.settin.inputData!=''" >
         <div class="btn-group spaceBottom" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary">Searched enquiry: {{searchCom.settin.inputData}}</button>
+            <button type="button" class="btn btn-secondary"><i class="fa fa-search" aria-hidden="true"></i> <strong>{{searchCom.settin.inputData}}</strong></button>
             <button type="button" class="btn btn-secondary spaceRight">Total: {{searchCom.settin.total}}</button>
         </div>
         <div class="btn-group spaceBottom" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" [ngClass]="{'cursorPnt':searchCom.settin.previous}"  [disabled]="!searchCom.settin.previous" (click)="nextPrev('prev')"><span>Previous Page</span></button>
+            <button type="button" class="btn btn-secondary" [ngClass]="{'cursorPnt':searchCom.settin.previous}"  [disabled]="!searchCom.settin.previous" (click)="nextPrev('prev')"><span><i class="fa fa-arrow-left" aria-hidden="true"></i></span></button>
             <button type="button" class="btn btn-secondary"><span>{{searchCom.settin.position}}-{{ searchCom.settin.position + searchCom.settin.limit -1 }}</span></button>
-            <button type="button" class="btn btn-secondary" [ngClass]="{'cursorPnt':searchCom.settin.next}" [disabled]="!searchCom.settin.next" (click)="nextPrev('next')"><span>Next Page</span></button>
+            <button type="button" class="btn btn-secondary" [ngClass]="{'cursorPnt':searchCom.settin.next}" [disabled]="!searchCom.settin.next" (click)="nextPrev('next')"><span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+        
         </div>
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Login
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" routerLink="/"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook Login</a>
+            <a class="dropdown-item" routerLink="/"><i class="fa fa-google" aria-hidden="true"></i> Google Login</a>
+            <a class="dropdown-item" routerLink="/"><i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail Login</a>
+          </div>
+        </div>
+
       </span>
     </div>
+
   </div>
+
 </nav>
 
 

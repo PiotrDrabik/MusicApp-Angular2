@@ -17,5 +17,5 @@ export class CompArtistComponent implements OnInit {
     this.searchCom.settin.type = 'artist';
     this.searchCom.checkIt();
   }
-
+  clicked = false;
 }

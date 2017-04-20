@@ -8,15 +8,19 @@
 
 - Angular 2.0, 
 - Bootstrap 4, 
+- TypeScript
+- EcmaScript 6
+- Angular Route, 
+- RxJs
 - jQuery, 
 - SCSS, 
-- NgRoute, 
 - Font-awesome
 
 ## Tools
 
 - Webpack
 - Angular CLI
+- Visual Studio Code
 - Photoshop
 
 ## My websites

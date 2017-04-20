@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { HttpRxjsComponent } from './http-rxjs/http-rxjs.component';
 
 @Injectable()
 export class SearchService {
@@ -15,12 +16,14 @@ export class SearchService {
     type: 'artist',
     receivedData: [],
     limit: null,
-    artist: {index:0,id:'',albums:''}
+    artist: {index:0,
+            id:'',
+            albums:''
+          }
   };
 
   checkIt = function() {
     if (this.settin.inputData!='') {
-      //this.search(`https://api.spotify.com/v1/search?q=${this.inpData}&type=album artist`);
       this.searchSpotify(`https://api.spotify.com/v1/search?q=${this.settin.inputData}&type=${this.settin.type}`, null);
     } else {
       this.receivedData = []
