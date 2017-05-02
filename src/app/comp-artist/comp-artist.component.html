@@ -1,21 +1,23 @@
-
-  <div class="row marginAuto" *ngFor="let items of searchCom.settin.receivedData; let i = index">
+<div class="row marginAuto" *ngFor="let items of searchCom.settin.receivedData; let i = index">
     <div class="col-md-6 col-sm-12 text-center">
-      <span *ngIf="items.images">
-        <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
-        <img *ngIf="!items.images.length>0" src="assets/img.jpg"  class="border-img anim">
+        <span *ngIf="items.images">
+            <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
+            <img *ngIf="!items.images.length>0" src="assets/img.jpg"  class="border-img anim">
       </span>
     </div>
     <div class="col-md-6 col-sm-12 text-center">
-      <div class="artistList anim  marginAuto">
-       <p># {{searchCom.settin.position + i}}</p>
-       <p class="largerFont bgColors">Artist: {{items.name}}</p>
-       <app-genres label="Genres" [item2]="items.genres"></app-genres>
-       <p><i class="fa fa-link" aria-hidden="true"></i> Link to Spotify: <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a></p>
-       <p *ngIf="items.popularity"><i class="fa fa-child" aria-hidden="true"></i> Popularity: {{items.popularity || ''}}</p>
-       <p *ngIf="items.followers"><i class="fa fa-blind" aria-hidden="true"></i> Followers:  {{items.followers.total}}</p>
-       <button type="button" class="btn btn-info cursorPnt width99" routerLink="/album-list" (click)="searchCom.takeAlbums(items.id)">Show artist's albums</button>
-       <p *ngFor="let album of albums; let k = index">{{album.name || ''}}</p>
-      </div>
+        <div class="artistList anim  marginAuto">
+            <p># {{searchCom.settin.position + i}}</p>
+            <p class="largerFont bgColors">Artist: {{items.name}}</p>
+            <app-genres label="Genres" [item2]="items.genres"></app-genres>
+            <p>
+                <i class="fa fa-link" aria-hidden="true"></i> Link to Spotify: 
+                <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a>
+            </p>
+            <p *ngIf="items.popularity"><i class="fa fa-child" aria-hidden="true"></i> Popularity: {{items.popularity || ''}}</p>
+            <p *ngIf="items.followers"><i class="fa fa-blind" aria-hidden="true"></i> Followers: {{items.followers.total}}</p>
+            <button type="button" class="btn btn-info cursorPnt width99" routerLink="/album-list" (click)="searchCom.takeAlbums(items.id, null)">Show artist's albums</button>
+            <p *ngFor="let album of albums; let k = index">{{album.name || ''}}</p>
+        </div>
     </div>
-  </div>
+</div>

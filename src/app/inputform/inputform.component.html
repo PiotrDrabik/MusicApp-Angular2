@@ -1,0 +1,31 @@
+<div class="container spaceUp">
+    <p><strong>Register new account</strong></p>
+    <p *ngIf="searchCom.errorMessage" class="errorAlert"><strong>Houston, we have a problem! </strong>{{searchCom.errorMessage}}</p>
+    <form (ngSubmit)="onSubmit(newUserForm)" novalidate="true" #newUserForm="ngForm">
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-6 col-form-label">Your nick name
+                <input type="text" #nameRef="ngModel" [(ngModel)]="searchCom.user.name" name="name" class="form-control" placeholder="Name" required>
+                <p *ngIf="nameRef.touched&&!nameRef.valid" class="bgAlert">This field is required</p>
+            </label>
+            <label class="col-sm-12 col-md-6 col-form-label">New password
+                <input type="password" #passRef="ngModel" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" [(ngModel)]="searchCom.user.password" name="password" class="form-control" placeholder="Password">
+                <p *ngIf="passRef.touched&&passRef.errors?.required" class="bgAlert">This field is required</p>
+                <p *ngIf="passRef.touched&&passRef.errors?.pattern" class="bgAlert">Password required at least 6 characters with: digit, capital letter, lower case letter</p>
+                <!-- special character /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,}) --> 
+            </label>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-6 col-form-label">Your Email address
+                <input type="email" #emailRef="ngModel" pattern="^[a-z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="searchCom.user.email" name="email" class="form-control" placeholder="Email"  required>
+                <span *ngIf="!emailRef.valid">
+                    <p *ngIf="emailRef.touched&&emailRef.errors?.required" class="bgAlert">This field is required</p>
+                    <p *ngIf="emailRef.touched&&emailRef.errors?.pattern" class="bgAlert">E-mail address is wrong</p>
+                </span>
+            </label>
+            <label class="col-sm-12 col-md-6 col-form-label">Accept
+                <button type="submit" class="btn btn-info cursorPnt width100">Register my account</button>
+            </label>
+        </div>
+    </form>
+    <p class="text-right">Already have an account? <a routerLink="/login">Login</a></p>
+</div>

@@ -1,24 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-genres',
-  templateUrl: './genres.component.html',
-  styleUrls: ['../app.common.css']
+    selector: 'app-genres',
+    templateUrl: './genres.component.html',
+    styleUrls: ['../app.common.css']
 })
 export class GenresComponent implements OnInit {
 
-  @Input()
-  item2 = [];
+    @Input()
+    item2 = [];
 
-  @Input()
-  label = '';
+    @Input()
+    label = '';
 
-  clicked = false;
+    clicked = false;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-
-  }
-  
+    ngOnInit() {
+    }
 }

@@ -1,0 +1,30 @@
+.up-space {
+    margin-top:2%;
+}
+
+.flexWidth {
+    display: flex; 
+    width:100%; 
+    justify-content: space-around;
+}
+
+.items {
+    width:33%;
+    text-align: center;
+}
+
+.tempStyle {
+    height: 180px; 
+    background-image: url(http://i1.wp.com/qnimate.com/wp-content/uploads/2014/03/images2.jpg?fit=679%2C9999); 
+    background-attachment: fixed;
+}
+
+.tempStyle > div {
+    background-color: rgba(0,0,0,0.7);
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+}
+
+.tempStyle > div:hover {
+    background-color: rgba(0,0,0,0.1);    
+}

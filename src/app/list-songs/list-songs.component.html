@@ -1,44 +1,53 @@
 <div class="row marginAuto">
-  <div class="col-md-6 col-sm-12 text-center">
-      <div class="col text-center">
-        <img *ngIf="searchCom.settin.artist.img" [src]="searchCom.settin.artist.img" class="border-img anim">
-        <img *ngIf="!searchCom.settin.artist.img" src="assets/img.jpg"  class="border-img anim">
-      </div>
-      Artist: 
-      <span *ngFor="let artist0 of searchCom.settin.artist.artists">
-          <h1>{{artist0.name}} </h1>
-      </span>
-      Album:
+    <div class="col-md-6 col-sm-12 text-center">
+        <div class="col text-center">
+            <img *ngIf="searchCom.settin.artist.img" [src]="searchCom.settin.artist.img" class="border-img anim">
+            <img *ngIf="!searchCom.settin.artist.img" src="assets/img.jpg" class="border-img anim">
+        </div>
+        <span *ngFor="let artist0 of searchCom.settin.artist.artists">
+             <h1><i class="fa fa-star-half-o" aria-hidden="true"></i> {{artist0.name}} </h1>
+        </span> Album:
         <h1>{{searchCom.settin.artist.name}}</h1>
         <div id="accordion" role="tablist" aria-multiselectable="true" class="width80 marginAuto">
-        <div class="card" style="background-color:black;">
-          <div class="card-header" role="tab" id="headingOne">
-            <h5 class="mb-0">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Published for markets:
-              </a>
-            </h5>
-          </div>
-          <div *ngIf="searchCom.settin.artist.name" id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-            <div class="card-block" style="background-color:black;">
-              <span *ngFor="let markets2 of searchCom.settin.receivedData[0].available_markets">{{markets2}}; </span>
+            <div class="card bg-color">
+                <div class="card-header" role="tab" id="headingOne">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Published for markets:
+                        </a>
+                    </h5>
+                </div>
+                <div *ngIf="searchCom.settin.artist.name" id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="card-block bg-color">
+                        <span *ngFor="let markets2 of searchCom.settin.receivedData[0]?.available_markets">{{markets2}}; </span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        </div>
-  </div>
-  <div class="col-md-6 col-sm-12 text-center width80 marginAuto">
-    <span *ngFor="let items of searchCom.settin.receivedData; let i = index; let odd = odd">
-      <div class="anim songItem" [ngClass]="{bgDark: odd}">
-              <p><span>Track {{items.track_number}}</span>: <strong class="spaceRight">{{items.name}}</strong> <span><i class="fa fa-star-half-o" aria-hidden="true"></i> {{items.artists[0].name}}</span></p>
-              <p><span class="spaceRight"><i class="fa fa-toggle-off" aria-hidden="true"></i> (Disc: {{items.disc_number}}); </span>
-                 Link to Spotify: <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a>
-              </p>
-              <audio controls style="width:100%;">
-                <source src="{{items.preview_url}}">
-                Your browser does not support the audio element.
-              </audio>
-      </div>
-    </span>
-  </div>
+    </div>
+    <div class="col-md-6 col-sm-12 text-center width80 marginAuto">
+        <span *ngFor="let items of searchCom.settin.receivedData; let i = index; let odd = odd">
+            <div class="anim songItem" [ngClass]="{bgDark: odd}">
+                <p>
+                    <span>Track {{items.track_number}}</span>: 
+                    <strong class="spaceRight">{{items.name}}</strong> 
+                    <span><i class="fa fa-star-half-o" aria-hidden="true"></i> {{items.artists[0].name}}</span>
+                </p>
+                <p>
+                    <span class="spaceRight"><i class="fa fa-toggle-off" aria-hidden="true"></i> (Disc: {{items.disc_number}}); </span>
+                    Link to Spotify: <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a>
+                    <app-favorite-button actionName="Add to my playlist"></app-favorite-button>
+                </p>
+                <span>
+                    <audio controls class="width100">
+                    <source src="{{items.preview_url}}">
+                    Your browser does not support the audio element.
+                    </audio>
+                </span>
+                <span *ngIf="!items.preview_url" class="textRed">
+                    This album doesn't have music previous.
+                </span>
+            </div>
+        </span>
+    </div>
 </div>

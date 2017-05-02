@@ -1,0 +1,24 @@
+.spaceAround {
+    padding:10px;
+}
+
+.favorite {
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.stlDisable {
+    color: rgba(255,255,255,0.6);
+}
+
+.favorite:hover {
+    color: lightgreen;
+}
+
+.cursorPnt {
+    cursor: pointer;
+}
+
+.spaceLeft2 {
+    margin-left:2px;
+}

@@ -1,25 +1,27 @@
-
-  <div class="row marginAuto" *ngFor="let items of searchCom.settin.receivedData; let i = index">
+<div class="row marginAuto" *ngFor="let items of searchCom.settin.receivedData; let i = index">
     <div class="col-md-6 col-sm-12 text-center">
-      <span *ngIf="items.images">
-        <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
-        <img *ngIf="!items.images.length>0" src="assets/img.jpg"  class="border-img anim">
-        <!--{{items.images | json}}-->
-      </span>
+        <span *ngIf="items.images">
+            <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
+            <img *ngIf="!items.images.length>0" src="assets/img.jpg"  class="border-img anim">
+            <!--{{items.images | json}}-->
+        </span>
     </div>
     <div class="col-md-6 col-sm-12 text-center">
-      <div class="artistList anim  marginAuto">
-       <p># {{searchCom.settin.position + i}}</p>
-       <p class="largerFont bgColors">Album: {{items.name}}</p>
-       <p *ngFor="let artist of items.artists; let k = index">
-         <i class="fa fa-star-half-o" aria-hidden="true"></i>
-         <span class="largerFont"> {{artist.name}} </span>
-       </p>
-       <p><i class="fa fa-link" aria-hidden="true"></i> Link to Spotify: <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a></p>
-       <app-genres label="Available markets" [item2]="items.available_markets"></app-genres>
-       <button type="button" class="btn btn-info cursorPnt width99" routerLink="/tracks-list" (click)="searchCom.takeTracks(items.id, i)">Show CD's details</button>
-      </div>
-    </div> 
-  </div>
-
-
+        <div class="artistList anim  marginAuto">
+            <p># {{searchCom.settin.position + i}}</p>
+            <p class="largerFont bgColors">Album: {{items.name}}</p>
+            <p *ngFor="let artist of items.artists; let k = index">
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <span class="largerFont"> {{artist.name}} </span>
+                
+            </p>
+            <p>
+                <i class="fa fa-link" aria-hidden="true"></i> Link to Spotify: 
+                <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a>
+            </p>
+            <app-genres label="Available markets" [item2]="items.available_markets"></app-genres>
+            <app-favorite-button actionName="Add to my album's list"></app-favorite-button>
+            <button type="button" class="btn btn-info cursorPnt width99" routerLink="/tracks-list" (click)="searchCom.takeTracks(items.id, i)">Show CD's details</button>
+        </div>
+    </div>
+</div>

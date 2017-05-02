@@ -1,0 +1,35 @@
+.form-control.ng-dirty.ng-invalid {
+    border: 2px solid rgba(255,0,0,0.9);
+}
+.form-control.ng-dirty.ng-valid {
+    border: 2px solid rgba(0,255,0,0.9);
+}
+
+.bgAlert {
+    background-color: red;
+    border-radius: 2px 2px 5px 5px;
+    font-size: 0.8rem;
+    padding-left: 10px;
+}
+
+.errorAlert {
+    background-color: red;
+    border-radius: 2px 2px 2px 2px;
+    padding: 3px;
+}
+
+.spaceUp {
+    margin-top: 4%;
+}
+
+.margin2 {
+    margin: 2%;
+}
+
+.width100 {
+    width:100%;
+}
+
+.cursorPnt {
+    cursor: pointer;
+}

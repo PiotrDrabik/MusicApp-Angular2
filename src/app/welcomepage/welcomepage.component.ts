@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../search.service';
 
 @Component({
-  selector: 'app-welcomepage',
-  templateUrl: './welcomepage.component.html',
-  styleUrls: ['./welcomepage.component.scss']
+    selector: 'app-welcomepage',
+    templateUrl: './welcomepage.component.html',
+    styleUrls: ['./welcomepage.component.scss']
 })
 export class WelcomepageComponent implements OnInit {
 
-  constructor() { }
+    constructor(private searchCom: SearchService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.searchCom.settin.inputData = '';
+    }
 
 }
