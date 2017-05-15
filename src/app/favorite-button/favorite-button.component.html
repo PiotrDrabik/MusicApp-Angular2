@@ -1,4 +1,4 @@
-<div *ngIf="authApp.isLogged()" class="pull-right favorite spaceAround cursorPnt">{{actionName}}
+<div *ngIf="authApp.isLogged()" (click)="db.addToDB(id, isAlbum)" class="pull-right favorite spaceAround cursorPnt">{{actionName}}
     <i class="fa fa-gratipay fa-2x spaceLeft2" aria-hidden="true"></i>
 </div>
 <div *ngIf="!authApp.isLogged()" class="pull-right spaceAround stlDisable">Login to have list of favorites

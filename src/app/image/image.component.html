@@ -1,0 +1,5 @@
+<span *ngIf="!loaded" class="animImg">
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+</span>
+<img *ngIf="images.length>0" [src]="images[0].url" (load)="imgLoaded()" class="border-img anim">
+<img *ngIf="!images.length>0" src="assets/img.jpg"  class="border-img anim">

@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { SearchService } from './search.service';
 import { AuthService } from './auth.service';
+import { BackendService } from './backend.service';
 
 import { AppComponent } from './app.component';
 import { HttpRxjsComponent } from './http-rxjs/http-rxjs.component';
@@ -21,6 +22,7 @@ import { InputformComponent } from './inputform/inputform.component';
 import { LoginformComponent } from './inputform/loginform.component';
 import { MemberComponent } from './member/member.component';
 import { FavoriteButtonComponent } from './favorite-button/favorite-button.component';
+import { ImageComponent } from './image/image.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -63,7 +65,8 @@ const routerModule = RouterModule.forRoot(routesConfig,{
     LoginformComponent,
     InputformComponent,
     MemberComponent,
-    FavoriteButtonComponent
+    FavoriteButtonComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,7 @@ const routerModule = RouterModule.forRoot(routesConfig,{
     routerModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [SearchService, AuthService],
+  providers: [SearchService, AuthService, BackendService],
   bootstrap: [AppComponent]
 })
 

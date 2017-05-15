@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { SearchService } from '../search.service';
+import { BackendService } from '../backend.service';
 
 @Component({
     selector: 'app-favorite-button',
@@ -12,7 +13,13 @@ export class FavoriteButtonComponent implements OnInit {
     @Input()
     actionName: string;
 
-    constructor(private authApp: AuthService, private searchCom: SearchService) { }
+    @Input()
+    id: string;
+
+    @Input()
+    isAlbum: boolean;
+
+    constructor(private authApp: AuthService, private searchCom: SearchService, public db: BackendService) { }
 
     ngOnInit() {
     }

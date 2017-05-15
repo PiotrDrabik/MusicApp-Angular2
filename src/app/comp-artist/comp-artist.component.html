@@ -1,8 +1,11 @@
 <div class="row marginAuto" *ngFor="let items of searchCom.settin.receivedData; let i = index">
     <div class="col-md-6 col-sm-12 text-center">
         <span *ngIf="items.images">
+            <app-image [images]="items.images"></app-image>
+            <!--
             <img *ngIf="items.images.length>0" [src]="items.images[0].url" class="border-img anim">
             <img *ngIf="!items.images.length>0" src="assets/img.jpg"  class="border-img anim">
+            -->
       </span>
     </div>
     <div class="col-md-6 col-sm-12 text-center">

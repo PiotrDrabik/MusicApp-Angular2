@@ -15,16 +15,17 @@
 - RxJs,
 - SCSS, 
 - Font-awesome
+- HammerJS
 
 ## Issues
 
 - Spotify API
 - Login Facebook + Google + Email,
 - Form validation,
-- Angular Route, 
+- Gesture Support
+- Add, Remove Favorite for particular user
+- Angular Route, Service, Pipe
 - Route Guard,
-- Angular Service,
-- Angular Pipe
 
 ## Tools
 

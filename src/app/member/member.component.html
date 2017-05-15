@@ -1,108 +1,66 @@
-<div id="carouselExampleIndicators" class="carousel slide up-space" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <!--
-      <img class="d-block img-fluid" src="http://i1.wp.com/qnimate.com/wp-content/uploads/2014/03/images2.jpg?fit=679%2C9999" alt="First slide">
-      -->
-        <div class="carousel-item active"> 
-            <div class="flexWidth">
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-            </div>
+<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+  <div class="card-block">
+    <h2 class="card-title">The list of your favorite albums</h2>
+    <p *ngIf="!db.albumApiList" class="card-text">Add your favorite albums and see them below.</p>
+  </div>
+</div>
+
+<span *ngIf="db.albumApiList">
+    <div style="display: flex; flex-direction: row; width: 100%;  overflow: scroll; overflow-x: hidden; overflow-y: hidden;"> <!--margin-left:-400px;">-->
+        <div style="padding-top: 150px;" [ngStyle]="{'margin-left':element.left+'px'}">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
         </div>
-        <div class="carousel-item">
-            <div class="flexWidth">
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-            </div>
+        <div *ngFor="let album of db.albumApiList?.albums; let i = index; let first = first; let last = last;" (swipeleft)="moveCarousel('left')" (swiperight)="moveCarousel('right')" 
+         class="items tempStyle newAnim" [ngStyle]="{'background-image': 'url(' + album.images[0].url + ')', 'background-size': 'cover'}">
+            <div *ngIf="album.images">
+            <!--    
+                <img *ngIf="album.images.length>0" [src]="album.images[0].url" style="vertical-align:middle; z-index:1;">
+                " newAnim" style="display: inline-block;" 
+                --> <!--style="width: auto; background-size: cover; max-width: 100%; height: auto; position: relative; z-index:1;">-->
+                <!--<img *ngIf="!album.images.length>0" src="assets/img.jpg">-->
+                <span style="z-index:20;">
+                    <div>Album Name: {{album.name}}</div>
+                    <div>Artist: {{album.artists[0].name}}</div>
+                    <div>Release date: {{album.release_date}}</div>
+                    <div>Number of tracks</div>
+                </span>
+                
+            </div>           
         </div>
-        <div class="carousel-item">
-            <div class="flexWidth">
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-                <div class="items tempStyle">
-                    <div>
-                        <div>Name</div>
-                        <div>Album</div>
-                        <div>Release date</div>
-                        <div>Number of tracks</div>
-                    </div>
-                </div>
-            </div>
+        <div  style="padding-top: 150px;">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+</span>
+<nav aria-label="Page navigation example">
+  <ul class="pagination  justify-content-center">
+    <li class="page-item"><span class="page-link cursorPnt" (click)="moveCarousel('right')">Left</span></li>
+    <li class="page-item"><span class="page-link cursorPnt" (click)="moveCarousel('left')">Right</span></li>
+  </ul>
+</nav>
+
 <!--
+<button (click)="moveCarousel('left')">left</button>
+<button (click)="moveCarousel('right')">right</button>
+
+
+<button (click)="db.check()">Check</button>
+
+<span *ngIf="db.newList">
+    <div class="" *ngFor="let item of db.newList">
+      <p>{{item.$key}}</p>
+      <p>{{item?.album}}</p>
+      <p>{{item?.track}}</p>
+    </div>
+    <hr />geg
+    <span *ngIf="db.userList">
+    <div class="" *ngFor="let item of db.userList | async">
+      <p>{{item.$key}}</p>
+      <p>{{item?.album}}</p>
+      <p>{{item?.track}}</p>
+    </div>
+    </span>
+
     <div class="" *ngFor="let item of chatMessages | async">
       <a href="#">{{item.name}}</a>
       <p>{{item.date}}</p>
@@ -119,3 +77,4 @@
     </div>
 
     <span (click)="deleteFromDB()">CLICK HERE</span>-->
+

@@ -10,7 +10,7 @@ import { FirstLargeLetterPipe } from '../first-large-letter.pipe';
     styleUrls: ['../app.common.css']
 })
 export class CompAlbumComponent implements OnInit {
-
+    loaded: boolean;
     constructor(private searchCom: SearchService) {
     }
 

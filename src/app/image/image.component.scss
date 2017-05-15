@@ -1,0 +1,22 @@
+ $border-color: #ff0000;
+
+ .animImg {
+    position:absolute; 
+    z-index:2;
+    padding:1%;
+ }
+ 
+ .border-img {
+    margin: 2px;
+    max-width: 70%;
+    height: auto;
+}
+
+.anim {
+    border: 1px $border-color solid;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    &:hover {
+        border: 4px $border-color double;
+    }
+}

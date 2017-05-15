@@ -8,23 +8,53 @@
     justify-content: space-around;
 }
 
+* {
+    -webkit-transition: 1s; /* For Safari 3.1 to 6.0 */
+    transition: 1s;
+}
+
 .items {
-    width:33%;
+    min-width:400px;
     text-align: center;
+    margin: 1px;
 }
 
 .tempStyle {
-    height: 180px; 
-    background-image: url(http://i1.wp.com/qnimate.com/wp-content/uploads/2014/03/images2.jpg?fit=679%2C9999); 
-    background-attachment: fixed;
+    height: 400px; 
+    //background-image: url(http://i1.wp.com/qnimate.com/wp-content/uploads/2014/03/images2.jpg?fit=679%2C9999); 
+    //background-attachment: fixed;
+}
+
+.newAnim {
+    min-width:400px;
+    height: 400px; 
+    -webkit-transition: 1s; /* For Safari 3.1 to 6.0 */
+    transition: 1s;
+    -webkit-box-shadow: 0 0 0px 0px rgba(255,255,255,0.3);
+    box-shadow: 0 0 0px 0px rgba(255,255,255,0.3);
+    //transform: scale(1,1);
+    //z-index:0;
+}
+
+.newAnim:hover {
+
+    min-width: 410px;
+    height: 410px; 
+    -webkit-box-shadow: 0 0 3px 3px rgba(255,255,255,0.3);
+    box-shadow: 0 0 3px 3px rgba(255,255,255,0.3);
+    //transform: scale(1.05,1.01);
+    //z-index:1;
+}
+
+.cursorPnt {
+    cursor: pointer;
 }
 
 .tempStyle > div {
     background-color: rgba(0,0,0,0.7);
     -webkit-transition: 0.6s;
     transition: 0.6s;
-}
-
-.tempStyle > div:hover {
-    background-color: rgba(0,0,0,0.1);    
+    &:hover {
+        background-color: rgba(0,0,0,0.1);    
+    }
 }

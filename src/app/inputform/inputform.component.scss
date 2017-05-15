@@ -1,3 +1,6 @@
+
+$bg-alert-color: #ff0000;
+
 .form-control.ng-dirty.ng-invalid {
     border: 2px solid rgba(255,0,0,0.9);
 }
@@ -6,14 +9,14 @@
 }
 
 .bgAlert {
-    background-color: red;
+    background-color: $bg-alert-color;
     border-radius: 2px 2px 5px 5px;
     font-size: 0.8rem;
     padding-left: 10px;
 }
 
 .errorAlert {
-    background-color: red;
+    background-color: $bg-alert-color;
     border-radius: 2px 2px 2px 2px;
     padding: 3px;
 }

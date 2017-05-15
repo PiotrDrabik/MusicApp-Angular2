@@ -36,7 +36,7 @@
                 <p>
                     <span class="spaceRight"><i class="fa fa-toggle-off" aria-hidden="true"></i> (Disc: {{items.disc_number}}); </span>
                     Link to Spotify: <a href='{{items.external_urls.spotify}}' target="_blank">https://open.spotify.com</a>
-                    <app-favorite-button actionName="Add to my playlist"></app-favorite-button>
+                    <app-favorite-button actionName="Add to my playlist" [isAlbum]=false [id]="items.id"></app-favorite-button>
                 </p>
                 <span>
                     <audio controls class="width100">

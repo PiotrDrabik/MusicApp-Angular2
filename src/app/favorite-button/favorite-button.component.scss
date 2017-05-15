@@ -5,14 +5,13 @@
 .favorite {
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    &:hover {
+        color: lightgreen;
+    }
 }
 
 .stlDisable {
     color: rgba(255,255,255,0.6);
-}
-
-.favorite:hover {
-    color: lightgreen;
 }
 
 .cursorPnt {

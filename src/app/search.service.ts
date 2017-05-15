@@ -42,7 +42,7 @@ export class SearchService {
         }
     };
 
-    takeAlbums = function (id, nextPrev:string) {
+    takeAlbums = function (id, nextPrev: string) {
         this.settin.artist.albums = id;
         let url = '';
         url = (nextPrev === null) ? `https://api.spotify.com/v1/artists/${id}/albums` : nextPrev;
@@ -73,6 +73,23 @@ export class SearchService {
     searchHttp(url) {
         return this.http.get(url);
     }
+    temp;
+    getFavorite = function(url: string) {
+        console.log('getFavorite: url');
+        console.log(url);
+        let data2 = '123';
+        this.searchHttp(url)
+            .subscribe((response: Response) => {
+                let data = response.json();
+                console.log('getFavorite: received data');
+                //console.log(data);
+                this.temp = data;
+                //this.temp = data.albums.items.map(v => { return v; })
+                //this.temp = data.albums.map(v => { return v; });
+                //this.db.albumApiList = data;
+            });
+            //return this.temp;
+    };
 
     saveVariables(data, key) {
         this.settin.next = eval(`data${key}.next`);
@@ -95,7 +112,7 @@ export class SearchService {
                     this.saveVariables(data, '');
                 }
 
-            })
+            });
     };
 
 }
