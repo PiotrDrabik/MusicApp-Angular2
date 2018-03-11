@@ -1,6 +1,5 @@
 # MusicApp: Angular 2.0 app
 
-- http://spotifyapp.papoldesign.pl/ 
 
 ![SpotifyApp](http://papoldesign.pl/cert/spotifyapp1.jpg)
 
