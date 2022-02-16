@@ -37,4 +37,4 @@
 ## My websites
 
 - https://www.behance.net/piotrdrabik
-- http://www.papoldesign.pl/edukacja
+- http://www.papol.pl/edukacja
