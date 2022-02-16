@@ -1,7 +1,7 @@
 # MusicApp: Angular 2.0 app
 
 
-![SpotifyApp](http://papoldesign.pl/cert/spotifyapp1.jpg)
+![SpotifyApp](http://papol.pl/cert/spotifyapp1.jpg)
 
 ## Code
 
